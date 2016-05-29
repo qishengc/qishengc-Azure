@@ -4,21 +4,32 @@ using DashboardApp.Models;
 
 namespace DashboardApp.Controllers
 {
-  public class HomeController : Controller
-  {
-    public ActionResult Index()
+    public class HomeController : Controller
     {
-      var db = new DashboardAppEntities();
-      var dashboardReport = new DashboardReport
-      {
-        NewComments = db.Comments.Count(),
-        NewTasks = db.Tasks.Count(),
-        NewOrders = db.Orders.Count(),
-        SupportTickets = db.SupportTickets.Count()
-      };
+        public ActionResult Index()
+        {
+            var db = new DashboardAppEntities();
 
-      ViewBag.Title = "Home";
-      return View(dashboardReport);
+            var dashboardReport = new DashboardReport
+            {
+                NewComments = 1,
+                NewTasks = 2,
+                NewOrders = 3,
+                SupportTickets = 4
+            };
+
+            /*
+            var dashboardReport = new DashboardReport
+            {
+              NewComments = db.Comments.Count(),
+              NewTasks = db.Tasks.Count(),
+              NewOrders = db.Orders.Count(),
+              SupportTickets = db.SupportTickets.Count()
+            };
+            */
+
+            ViewBag.Title = "Home";
+            return View(dashboardReport);
+        }
     }
-  }
 }
