@@ -10,6 +10,7 @@ namespace DashboardApp.Controllers
         {
             var db = new DashboardAppEntities();
 
+            /*
             var dashboardReport = new DashboardReport
             {
                 NewComments = 1,
@@ -17,8 +18,8 @@ namespace DashboardApp.Controllers
                 NewOrders = 3,
                 SupportTickets = 4
             };
-
-            /*
+            */
+            
             var dashboardReport = new DashboardReport
             {
               NewComments = db.Comments.Count(),
@@ -26,7 +27,7 @@ namespace DashboardApp.Controllers
               NewOrders = db.Orders.Count(),
               SupportTickets = db.SupportTickets.Count()
             };
-            */
+            
 
             ViewBag.Title = "Home";
             return View(dashboardReport);
